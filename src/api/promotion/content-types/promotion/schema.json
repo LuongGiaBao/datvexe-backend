@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotions",
+  "info": {
+    "singularName": "promotion",
+    "pluralName": "promotions",
+    "displayName": "Promotion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Hoạt động",
+        "Ngưng hoạt động"
+      ],
+      "required": true,
+      "default": "Ngưng hoạt động"
+    },
+    "IDPromotion": {
+      "type": "string",
+      "default": "MKM",
+      "required": true
+    },
+    "detail_promotions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::detail-promotion.detail-promotion",
+      "mappedBy": "promotion"
+    },
+    "promotion_sale": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::promotion-sale.promotion-sale",
+      "inversedBy": "promotions"
+    }
+  }
+}

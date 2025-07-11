@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seat_statuses",
+  "info": {
+    "singularName": "seat-status",
+    "pluralName": "seat-statuses",
+    "displayName": "SeatStatus"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Ma": {
+      "type": "string",
+      "default": "MTT",
+      "required": true
+    },
+    "seat": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::seat.seat",
+      "inversedBy": "seat_statuses"
+    },
+    "schedule": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::schedule.schedule",
+      "inversedBy": "seat_statuses"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Còn trống",
+        "Đã bán"
+      ],
+      "default": "Còn trống"
+    }
+  }
+}

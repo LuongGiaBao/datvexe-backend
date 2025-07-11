@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "detail_promotions",
+  "info": {
+    "singularName": "detail-promotion",
+    "pluralName": "detail-promotions",
+    "displayName": "DetailPromotion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MaChiTietKhuyenMai": {
+      "type": "string",
+      "default": "MCTKM",
+      "required": true
+    },
+    "promotion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::promotion.promotion",
+      "inversedBy": "detail_promotions"
+    },
+    "description": {
+      "type": "text"
+    },
+    "LoaiKhuyenMai": {
+      "type": "enumeration",
+      "enum": [
+        "Tặng tiền",
+        "Chiết khấu hóa đơn"
+      ],
+      "required": true
+    },
+    "TongTienHoaDon": {
+      "type": "decimal"
+    },
+    "SoTienTang": {
+      "type": "decimal"
+    },
+    "PhanTramChietKhau": {
+      "type": "integer"
+    },
+    "SoTienKhuyenMaiToiDa": {
+      "type": "decimal"
+    },
+    "promotion_sale": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::promotion-sale.promotion-sale",
+      "inversedBy": "detail_promotions"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employee_sales",
+  "info": {
+    "singularName": "employee-sale",
+    "pluralName": "employee-sales",
+    "displayName": "EmployeeSale",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "employee": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee"
+    },
+    "DoanhSoTruocChietKhau": {
+      "type": "string"
+    },
+    "DoanhSoSauChietKhau": {
+      "type": "string"
+    },
+    "NgayBan": {
+      "type": "date"
+    },
+    "detail_promotion": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::detail-promotion.detail-promotion"
+    }
+  }
+}

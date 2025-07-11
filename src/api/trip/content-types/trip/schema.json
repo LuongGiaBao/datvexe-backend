@@ -1,0 +1,91 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trips",
+  "info": {
+    "singularName": "trip",
+    "pluralName": "trips",
+    "displayName": "Trip",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ticket": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ticket.ticket",
+      "inversedBy": "trips"
+    },
+    "seats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::seat.seat",
+      "mappedBy": "trip"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Hoạt động",
+        "Ngưng hoạt động"
+      ],
+      "required": true
+    },
+    "totalSeats": {
+      "type": "integer",
+      "default": 34
+    },
+    "ExpectedTime": {
+      "type": "time",
+      "required": true
+    },
+    "MaTuyen": {
+      "type": "string",
+      "default": "MT",
+      "required": true
+    },
+    "schedules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::schedule.schedule",
+      "mappedBy": "MaTuyen"
+    },
+    "detai_prices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::detai-price.detai-price",
+      "mappedBy": "trip"
+    },
+    "MaDiemDon": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pickup-point.pickup-point",
+      "inversedBy": "MaTuyen"
+    },
+    "MaDiemTra": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::drop-off-point.drop-off-point",
+      "inversedBy": "MaTuyen"
+    },
+    "departure_location_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "trips"
+    },
+    "arrival_location_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "trips"
+    },
+    "detail_invoices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::detail-invoice.detail-invoice",
+      "mappedBy": "trip"
+    }
+  }
+}

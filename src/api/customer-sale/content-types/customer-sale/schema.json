@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_sales",
+  "info": {
+    "singularName": "customer-sale",
+    "pluralName": "customer-sales",
+    "displayName": "CustomerSale",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::customer.customer",
+      "mappedBy": "customer_sale"
+    },
+    "ticket": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ticket.ticket"
+    },
+    "detail_promotion": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::detail-promotion.detail-promotion"
+    },
+    "DoanhSoTruocChietKhau": {
+      "type": "string"
+    },
+    "DoanhSoSauChietKhau": {
+      "type": "string"
+    }
+  }
+}

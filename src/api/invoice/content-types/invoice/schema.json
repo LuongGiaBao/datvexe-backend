@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "Invoice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MaHoaDon": {
+      "type": "string",
+      "required": true,
+      "default": "MHD"
+    },
+    "customerId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "invoicesId"
+    },
+    "employeeId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee",
+      "inversedBy": "invoicesId"
+    },
+    "scheduleId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::schedule.schedule",
+      "inversedBy": "invoicesId"
+    },
+    "PhuongThucThanhToan": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Thành công",
+        "Không thành công"
+      ]
+    },
+    "detail_invoices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::detail-invoice.detail-invoice",
+      "mappedBy": "invoice"
+    }
+  }
+}

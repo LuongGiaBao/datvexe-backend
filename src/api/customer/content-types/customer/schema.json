@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer",
+    "pluralName": "customers",
+    "displayName": "Customer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MaKH": {
+      "type": "string",
+      "default": "MKH",
+      "required": true
+    },
+    "TenKH": {
+      "type": "string",
+      "required": true
+    },
+    "DienThoai": {
+      "type": "biginteger"
+    },
+    "DiaChi": {
+      "type": "string",
+      "required": false
+    },
+    "GioiTinh": {
+      "type": "enumeration",
+      "enum": [
+        "Nam",
+        "Nữ"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Khách hàng"
+      ],
+      "default": "Khách hàng"
+    },
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "invoicesId": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invoice.invoice",
+      "mappedBy": "customerId"
+    },
+    "customer_sale": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer-sale.customer-sale",
+      "inversedBy": "customers"
+    }
+  }
+}

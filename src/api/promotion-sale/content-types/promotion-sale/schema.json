@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotion_sales",
+  "info": {
+    "singularName": "promotion-sale",
+    "pluralName": "promotion-sales",
+    "displayName": "PromotionSale",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "detail_promotions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::detail-promotion.detail-promotion",
+      "mappedBy": "promotion_sale"
+    },
+    "promotions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::promotion.promotion",
+      "mappedBy": "promotion_sale"
+    }
+  }
+}
