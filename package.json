@@ -1,18 +1,18 @@
 {
   "name": "my-strapi-project",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
   "description": "A Strapi application",
+  "license": "MIT",
+  "author": {
+    "name": "A Strapi developer"
+  },
   "scripts": {
+    "build": "strapi build",
+    "deploy": "strapi deploy",
     "develop": "strapi develop",
     "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi",
-    "deploy": "strapi deploy"
-  },
-  "devDependencies": {
-    "@swc/core": "^1.7.22",
-    "typescript": "^5.5.4"
+    "strapi": "strapi"
   },
   "dependencies": {
     "@strapi/database": "^5.3.0",
@@ -20,7 +20,6 @@
     "@strapi/plugin-i18n": "4.25.9",
     "@strapi/plugin-users-permissions": "4.25.9",
     "@strapi/strapi": "4.25.9",
-    "@swc/core-win32-x64-msvc": "^1.7.22",
     "better-sqlite3": "8.6.0",
     "mssql": "^11.0.1",
     "mysql": "^2.18.1",
@@ -34,15 +33,14 @@
     "strapi-plugin-timezone-select": "^1.0.0",
     "styled-components": "5.3.3"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
-  "strapi": {
-    "uuid": "94cb0d0f-489e-480a-80b6-386d815afee0"
+  "devDependencies": {
+    "typescript": "^5.5.4"
   },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "strapi": {
+    "uuid": "94cb0d0f-489e-480a-80b6-386d815afee0"
+  }
 }
