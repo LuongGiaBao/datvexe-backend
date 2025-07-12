@@ -27,8 +27,12 @@
     "mysql2": "^3.11.4",
     "node-cron": "^3.0.3",
     "pg": "^8.16.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^5.2.0",
     "strapi-connector-mongoose": "^3.1.4",
-    "strapi-plugin-timezone-select": "^1.0.0"
+    "strapi-plugin-timezone-select": "^1.0.0",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "typescript": "^5.5.4"
