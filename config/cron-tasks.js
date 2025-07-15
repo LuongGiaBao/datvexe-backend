@@ -1,12 +1,8 @@
 module.exports = {
   myJob: {
     task: async ({ strapi }) => {
-      console.log("====================================");
-      console.log("Cron job is running");
-      console.log("====================================");
       const now = new Date();
       const currentTime = now.toISOString();
-
       try {
         // Kiểm tra mô hình
         const tripModel = strapi.getModel("api::trip.trip");
@@ -16,7 +12,6 @@ module.exports = {
 
         // Lấy tất cả các chuyến xe
         const trips = await strapi.entityService.findMany("api::trip.trip");
-        
 
         for (const trip of trips) {
           // Truy cập trực tiếp vào các thuộc tính của trip
@@ -24,10 +19,6 @@ module.exports = {
 
           // Kiểm tra các thuộc tính cần thiết
           if (!departureTime || !arrivalTime || !status) {
-            console.warn(
-              `Chuyến đi với ID ${id} thiếu thuộc tính cần thiết:`,
-              trip
-            );
             continue; // Bỏ qua nếu thiếu thuộc tính
           }
 
@@ -60,10 +51,6 @@ module.exports = {
             );
           }
         }
-
-        console.log(
-          "Đã cập nhật trạng thái chuyến đi dựa trên thời gian hiện tại"
-        );
       } catch (error) {
         console.error("Lỗi khi cập nhật trạng thái chuyến đi:", error);
       }
@@ -74,10 +61,6 @@ module.exports = {
   },
   myJobTicket: {
     task: async ({ strapi }) => {
-      console.log("====================================");
-      console.log("Ticket cron job is running");
-      console.log("====================================");
-
       try {
         const ticketModel = strapi.getModel("api::ticket.ticket");
         if (!ticketModel) {
@@ -90,7 +73,6 @@ module.exports = {
             populate: ["ticketPrices"],
           }
         );
-       
 
         const now = new Date();
         const nowVietnam = new Date(now.getTime() + 7 * 60 * 60 * 1000); // Cộng 7 giờ cho giờ VN
@@ -130,7 +112,7 @@ module.exports = {
           }
         }
 
-        console.log("Đã kiểm tra và cập nhật trạng thái vé");
+       
       } catch (error) {
         console.error("Lỗi khi cập nhật trạng thái vé:", error);
       }
